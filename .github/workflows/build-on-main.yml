@@ -1,0 +1,42 @@
+name: Build package on main
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-main-pr-source:
+    name: Validate main PR source
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Require develop as the source branch
+        run: |
+          if [ "${{ github.head_ref }}" != "develop" ]; then
+            echo "Pull requests into main must come from develop."
+            exit 1
+          fi
+
+  build-package:
+    name: Build macOS package
+    if: github.event_name == 'push' && startsWith(github.event.head_commit.message, 'Merge pull request ') && contains(github.event.head_commit.message, ' from mgfrantz/develop')
+    runs-on: macos-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build package
+        run: make package
+
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimpleSpritz.pkg
+          path: build/SimpleSpritz.pkg
+          if-no-files-found: error
