@@ -1,0 +1,50 @@
+name: Owner approval policy
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+      - synchronize
+      - review_requested
+      - edited
+  pull_request_review:
+    types:
+      - submitted
+      - edited
+      - dismissed
+
+permissions:
+  pull-requests: read
+
+jobs:
+  require-owner-approval:
+    name: Require owner approval
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Require owner approval for external authors
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OWNER: mgfrantz
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          if [ "$PR_AUTHOR" = "$OWNER" ]; then
+            echo "Pull request author is $OWNER; owner approval is not required."
+            exit 0
+          fi
+
+          latest_owner_review="$(gh api \
+            "repos/$REPOSITORY/pulls/$PR_NUMBER/reviews" \
+            --jq '[.[] | select(.user.login == env.OWNER)] | last | .state // ""')"
+
+          if [ "$latest_owner_review" = "APPROVED" ]; then
+            echo "Latest review from $OWNER is APPROVED."
+            exit 0
+          fi
+
+          echo "Pull requests not authored by $OWNER require an APPROVED review from $OWNER."
+          exit 1
