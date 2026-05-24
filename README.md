@@ -2,32 +2,27 @@
 
 A tiny macOS menu-bar utility for speed-reading selected text in a temporary floating window.
 
-## Package
+## Install
+
+Download the latest `SimpleSpritz.pkg` from the [GitHub Releases page](https://github.com/mgfrantz/SimpleSpritz/releases), then double-click it to install `SimpleSpritz.app` into `/Applications`.
+
+Once installed, launch SimpleSpritz from `/Applications`. The app appears in the menu bar and macOS app menu as `SimpleSpritz`.
+
+## Developer Install
+
+Build a local installer package:
 
 ```sh
 make package
 ```
 
-This creates a macOS installer package:
+This creates:
 
 ```text
 build/SimpleSpritz.pkg
 ```
 
-Double-click the package to install `SimpleSpritz.app` into `/Applications`.
-
-## Release
-
-GitHub Releases are published from version tags:
-
-```sh
-git tag v0.1.0
-git push origin v0.1.0
-```
-
-The release workflow builds `build/SimpleSpritz.pkg` on macOS and uploads it to the GitHub Release.
-
-## Local Install
+Install directly from a local checkout:
 
 ```sh
 make install
@@ -35,7 +30,16 @@ make install
 
 This builds and copies `SimpleSpritz.app` directly into `/Applications`.
 
-Once installed, launch SimpleSpritz from `/Applications`. The app appears in the menu bar and macOS app menu as `SimpleSpritz`.
+## Release
+
+GitHub Releases are published from version tags. Maintainers can publish a release with:
+
+```sh
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+The release workflow builds `build/SimpleSpritz.pkg` on macOS and uploads it to the GitHub Release.
 
 ## Shortcut
 
