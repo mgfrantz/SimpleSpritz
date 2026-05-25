@@ -1,12 +1,20 @@
 import Foundation
 
 open class SpritzReader {
+    private static let initialStartDelay: TimeInterval = 0.5
+
     public private(set) var word = ""
     public private(set) var left = ""
     public private(set) var pivot = ""
     public private(set) var right = ""
     public private(set) var progress = "0 / 0"
     public private(set) var isRunning = false
+    public var hasWords: Bool {
+        !words.isEmpty
+    }
+    public var isAtEnd: Bool {
+        !words.isEmpty && index >= words.count - 1
+    }
 
     public var speed: Int {
         didSet {
@@ -57,9 +65,13 @@ open class SpritzReader {
 
     public func start() {
         guard !words.isEmpty else { return }
+        if isAtEnd {
+            index = 0
+            showCurrent()
+        }
         isRunning = true
         rampStartTime = Date()
-        schedule()
+        scheduleStartDelay()
     }
 
     public func pause() {
@@ -94,8 +106,19 @@ open class SpritzReader {
     }
 
     private func schedule() {
+        schedule(after: currentInterval())
+    }
+
+    private func schedule(after interval: TimeInterval) {
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: currentInterval(), repeats: false) { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: false) { [weak self] _ in
+            self?.advance()
+        }
+    }
+
+    private func scheduleStartDelay() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: Self.initialStartDelay, repeats: false) { [weak self] _ in
             self?.advance()
         }
     }

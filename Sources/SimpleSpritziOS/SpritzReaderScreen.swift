@@ -35,6 +35,7 @@ struct SpritzReaderScreen: View {
                 }
             }
         }
+        .preferredColorScheme(.dark)
     }
 
     private var readerPanel: some View {

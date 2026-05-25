@@ -9,6 +9,8 @@ SIGN_IDENTITY ?= -
 CONTENTS := $(APP_DIR)/Contents
 MACOS := $(CONTENTS)/MacOS
 RESOURCES := $(CONTENTS)/Resources
+MAC_ICON := Sources/SimpleSpritz/Resources/SimpleSpritz.icns
+STATUS_ICON := Sources/SimpleSpritz/Resources/StatusBarIcon.pdf
 
 .PHONY: all build package install stop-installed print-signing-help clean
 
@@ -18,6 +20,8 @@ build:
 	mkdir -p "$(MACOS)" "$(RESOURCES)"
 	CLANG_MODULE_CACHE_PATH="$(BUILD_DIR)/ModuleCache" swiftc Sources/SimpleSpritz/main.swift -o "$(MACOS)/$(APP_NAME)" -framework AppKit -framework Carbon
 	cp Info.plist "$(CONTENTS)/Info.plist"
+	cp "$(MAC_ICON)" "$(RESOURCES)/SimpleSpritz.icns"
+	cp "$(STATUS_ICON)" "$(RESOURCES)/StatusBarIcon.pdf"
 	codesign --force --deep --sign "$(SIGN_IDENTITY)" "$(APP_DIR)"
 
 package: build

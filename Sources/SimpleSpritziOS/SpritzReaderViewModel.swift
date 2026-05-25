@@ -47,6 +47,17 @@ final class SpritzReaderViewModel: ObservableObject {
     }
 
     func toggle() {
+        if !reader.hasWords {
+            let trimmed = draftText.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !trimmed.isEmpty else {
+                refresh()
+                return
+            }
+            reader.load(trimmed)
+            refresh()
+            return
+        }
+
         reader.toggle()
         refresh()
     }

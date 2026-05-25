@@ -5,6 +5,8 @@ import UniformTypeIdentifiers
 final class ShareViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
+        view.overrideUserInterfaceStyle = .dark
         loadSharedText { [weak self] text in
             self?.showReader(text: text)
         }
@@ -17,7 +19,10 @@ final class ShareViewController: UIViewController {
             onDone: { [weak self] in
                 self?.extensionContext?.completeRequest(returningItems: nil)
             }
-        ))
+        ).preferredColorScheme(.dark))
+        controller.overrideUserInterfaceStyle = .dark
+        controller.view.overrideUserInterfaceStyle = .dark
+        controller.view.backgroundColor = .systemBackground
 
         addChild(controller)
         controller.view.translatesAutoresizingMaskIntoConstraints = false

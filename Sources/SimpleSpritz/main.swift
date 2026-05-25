@@ -508,8 +508,9 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func buildMenu() {
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        statusItem?.button?.title = "SimpleSpritz"
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        statusItem?.button?.image = statusBarIcon()
+        statusItem?.button?.toolTip = "SimpleSpritz"
         let menu = NSMenu()
         let readItem = NSMenuItem(title: "Read Selection", action: #selector(readSelection), keyEquivalent: "s")
         readItem.keyEquivalentModifierMask = [.command, .option]
@@ -520,6 +521,16 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
         quitItem.target = self
         menu.addItem(quitItem)
         statusItem?.menu = menu
+    }
+
+    private func statusBarIcon() -> NSImage? {
+        guard let icon = NSImage(named: "StatusBarIcon") else {
+            return nil
+        }
+
+        icon.size = NSSize(width: 18, height: 18)
+        icon.isTemplate = true
+        return icon
     }
 
     private func buildAppMenu() {
