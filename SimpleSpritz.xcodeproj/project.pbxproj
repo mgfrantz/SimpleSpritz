@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		100000000000000000000101 /* SpritzReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000001 /* SpritzReader.swift */; };
+		100000000000000000000102 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000002 /* main.swift */; };
+		100000000000000000000103 /* SpritzReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000001 /* SpritzReader.swift */; };
+		100000000000000000000104 /* SpritzReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000003 /* SpritzReaderViewModel.swift */; };
+		100000000000000000000105 /* SpritzReaderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000004 /* SpritzReaderScreen.swift */; };
+		100000000000000000000106 /* SimpleSpritziOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000005 /* SimpleSpritziOSApp.swift */; };
+		100000000000000000000107 /* SpritzReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000001 /* SpritzReader.swift */; };
+		100000000000000000000108 /* SpritzReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000003 /* SpritzReaderViewModel.swift */; };
+		100000000000000000000109 /* SpritzReaderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000004 /* SpritzReaderScreen.swift */; };
+		10000000000000000000010A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000006 /* ShareViewController.swift */; };
+		10000000000000000000010B /* SimpleSpritzShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 10000000000000000000000B /* SimpleSpritzShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		10000000000000000000010C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10000000000000000000000D /* Assets.xcassets */; };
+		10000000000000000000010D /* SimpleSpritz.icns in Resources */ = {isa = PBXBuildFile; fileRef = 10000000000000000000000E /* SimpleSpritz.icns */; };
+		10000000000000000000010E /* StatusBarIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 10000000000000000000000F /* StatusBarIcon.pdf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		100000000000000000000201 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 100000000000000000000010 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 100000000000000000000023;
+			remoteInfo = SimpleSpritzShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		100000000000000000000301 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				10000000000000000000010B /* SimpleSpritzShareExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		100000000000000000000001 /* SpritzReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpritzReader.swift; sourceTree = "<group>"; };
+		100000000000000000000002 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		100000000000000000000003 /* SpritzReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpritzReaderViewModel.swift; sourceTree = "<group>"; };
+		100000000000000000000004 /* SpritzReaderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpritzReaderScreen.swift; sourceTree = "<group>"; };
+		100000000000000000000005 /* SimpleSpritziOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSpritziOSApp.swift; sourceTree = "<group>"; };
+		100000000000000000000006 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		100000000000000000000007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		100000000000000000000008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		100000000000000000000009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		10000000000000000000000A /* SimpleSpritziOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleSpritziOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10000000000000000000000B /* SimpleSpritzShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SimpleSpritzShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		10000000000000000000000C /* SimpleSpritzMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleSpritzMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10000000000000000000000D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		10000000000000000000000E /* SimpleSpritz.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Resources/SimpleSpritz.icns; sourceTree = "<group>"; };
+		10000000000000000000000F /* StatusBarIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Resources/StatusBarIcon.pdf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		100000000000000000000401 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		100000000000000000000402 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		100000000000000000000403 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		100000000000000000000011 = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000012 /* Sources */,
+				100000000000000000000013 /* Products */,
+				100000000000000000000009 /* Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		100000000000000000000012 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000014 /* SimpleSpritzCore */,
+				100000000000000000000015 /* SimpleSpritz */,
+				100000000000000000000016 /* SimpleSpritziOS */,
+				100000000000000000000017 /* SimpleSpritzShareExtension */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		100000000000000000000013 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10000000000000000000000A /* SimpleSpritziOS.app */,
+				10000000000000000000000B /* SimpleSpritzShareExtension.appex */,
+				10000000000000000000000C /* SimpleSpritzMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		100000000000000000000014 /* SimpleSpritzCore */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000001 /* SpritzReader.swift */,
+			);
+			path = SimpleSpritzCore;
+			sourceTree = "<group>";
+		};
+		100000000000000000000015 /* SimpleSpritz */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000002 /* main.swift */,
+				10000000000000000000000E /* SimpleSpritz.icns */,
+				10000000000000000000000F /* StatusBarIcon.pdf */,
+			);
+			path = SimpleSpritz;
+			sourceTree = "<group>";
+		};
+		100000000000000000000016 /* SimpleSpritziOS */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000005 /* SimpleSpritziOSApp.swift */,
+				100000000000000000000004 /* SpritzReaderScreen.swift */,
+				100000000000000000000003 /* SpritzReaderViewModel.swift */,
+				10000000000000000000000D /* Assets.xcassets */,
+				100000000000000000000007 /* Info.plist */,
+			);
+			path = SimpleSpritziOS;
+			sourceTree = "<group>";
+		};
+		100000000000000000000017 /* SimpleSpritzShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000006 /* ShareViewController.swift */,
+				100000000000000000000008 /* Info.plist */,
+			);
+			path = SimpleSpritzShareExtension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		100000000000000000000021 /* SimpleSpritziOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 100000000000000000000501 /* Build configuration list for PBXNativeTarget "SimpleSpritziOS" */;
+			buildPhases = (
+				100000000000000000000601 /* Sources */,
+				100000000000000000000401 /* Frameworks */,
+				100000000000000000000604 /* Resources */,
+				100000000000000000000301 /* Embed App Extensions */,
+			);
+			buildRules = ();
+			dependencies = (
+				100000000000000000000202 /* PBXTargetDependency */,
+			);
+			name = SimpleSpritziOS;
+			productName = SimpleSpritziOS;
+			productReference = 10000000000000000000000A /* SimpleSpritziOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		100000000000000000000022 /* SimpleSpritzMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 100000000000000000000502 /* Build configuration list for PBXNativeTarget "SimpleSpritzMac" */;
+			buildPhases = (
+				100000000000000000000602 /* Sources */,
+				100000000000000000000402 /* Frameworks */,
+				100000000000000000000605 /* Resources */,
+			);
+			buildRules = ();
+			dependencies = ();
+			name = SimpleSpritzMac;
+			productName = SimpleSpritzMac;
+			productReference = 10000000000000000000000C /* SimpleSpritzMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		100000000000000000000023 /* SimpleSpritzShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 100000000000000000000503 /* Build configuration list for PBXNativeTarget "SimpleSpritzShareExtension" */;
+			buildPhases = (
+				100000000000000000000603 /* Sources */,
+				100000000000000000000403 /* Frameworks */,
+			);
+			buildRules = ();
+			dependencies = ();
+			name = SimpleSpritzShareExtension;
+			productName = SimpleSpritzShareExtension;
+			productReference = 10000000000000000000000B /* SimpleSpritzShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		100000000000000000000010 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					100000000000000000000021 = {CreatedOnToolsVersion = 16.0; };
+					100000000000000000000022 = {CreatedOnToolsVersion = 16.0; };
+					100000000000000000000023 = {CreatedOnToolsVersion = 16.0; };
+				};
+			};
+			buildConfigurationList = 100000000000000000000500 /* Build configuration list for PBXProject "SimpleSpritz" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 100000000000000000000011;
+			productRefGroup = 100000000000000000000013 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				100000000000000000000021 /* SimpleSpritziOS */,
+				100000000000000000000023 /* SimpleSpritzShareExtension */,
+				100000000000000000000022 /* SimpleSpritzMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		100000000000000000000604 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10000000000000000000010C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		100000000000000000000605 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10000000000000000000010D /* SimpleSpritz.icns in Resources */,
+				10000000000000000000010E /* StatusBarIcon.pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		100000000000000000000601 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100000000000000000000103 /* SpritzReader.swift in Sources */,
+				100000000000000000000104 /* SpritzReaderViewModel.swift in Sources */,
+				100000000000000000000105 /* SpritzReaderScreen.swift in Sources */,
+				100000000000000000000106 /* SimpleSpritziOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		100000000000000000000602 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100000000000000000000101 /* SpritzReader.swift in Sources */,
+				100000000000000000000102 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		100000000000000000000603 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100000000000000000000107 /* SpritzReader.swift in Sources */,
+				100000000000000000000108 /* SpritzReaderViewModel.swift in Sources */,
+				100000000000000000000109 /* SpritzReaderScreen.swift in Sources */,
+				10000000000000000000010A /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		100000000000000000000202 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 100000000000000000000023 /* SimpleSpritzShareExtension */;
+			targetProxy = 100000000000000000000201 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		100000000000000000000701 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = auto;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		100000000000000000000702 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = auto;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		100000000000000000000711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/SimpleSpritziOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgfrantz.SimpleSpritz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		100000000000000000000712 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/SimpleSpritziOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgfrantz.SimpleSpritz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		100000000000000000000721 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = local.simplespritz;
+				PRODUCT_NAME = SimpleSpritz;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		100000000000000000000722 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = local.simplespritz;
+				PRODUCT_NAME = SimpleSpritz;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		100000000000000000000731 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/SimpleSpritzShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgfrantz.SimpleSpritz.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		100000000000000000000732 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/SimpleSpritzShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgfrantz.SimpleSpritz.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		100000000000000000000500 /* Build configuration list for PBXProject "SimpleSpritz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				100000000000000000000701 /* Debug */,
+				100000000000000000000702 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		100000000000000000000501 /* Build configuration list for PBXNativeTarget "SimpleSpritziOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				100000000000000000000711 /* Debug */,
+				100000000000000000000712 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		100000000000000000000502 /* Build configuration list for PBXNativeTarget "SimpleSpritzMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				100000000000000000000721 /* Debug */,
+				100000000000000000000722 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		100000000000000000000503 /* Build configuration list for PBXNativeTarget "SimpleSpritzShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				100000000000000000000731 /* Debug */,
+				100000000000000000000732 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 100000000000000000000010 /* Project object */;
+}

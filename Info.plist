@@ -6,6 +6,8 @@
 	<string>SimpleSpritz</string>
 	<key>CFBundleIdentifier</key>
 	<string>local.simplespritz</string>
+	<key>CFBundleIconFile</key>
+	<string>SimpleSpritz</string>
 	<key>CFBundleName</key>
 	<string>SimpleSpritz</string>
 	<key>CFBundlePackageType</key>
