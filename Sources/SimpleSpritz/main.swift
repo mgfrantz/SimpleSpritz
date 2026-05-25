@@ -479,6 +479,7 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
     private var window: NSWindow?
     private var statusItem: NSStatusItem?
     private var hotKeyRef: EventHotKeyRef?
+    private var hotKeyEventHandlerRef: EventHandlerRef?
     private var keyMonitor: Any?
     private var hotKeySetting = HotKeySetting(
         keyCode: UInt32(kVK_ANSI_S),
@@ -498,6 +499,9 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
         if let hotKeyRef {
             UnregisterEventHotKey(hotKeyRef)
         }
+        if let hotKeyEventHandlerRef {
+            RemoveEventHandler(hotKeyEventHandlerRef)
+        }
         if let keyMonitor {
             NSEvent.removeMonitor(keyMonitor)
         }
@@ -507,7 +511,14 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem?.button?.title = "SimpleSpritz"
         let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "q"))
+        let readItem = NSMenuItem(title: "Read Selection", action: #selector(readSelection), keyEquivalent: "s")
+        readItem.keyEquivalentModifierMask = [.command, .option]
+        readItem.target = self
+        menu.addItem(readItem)
+        menu.addItem(.separator())
+        let quitItem = NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "q")
+        quitItem.target = self
+        menu.addItem(quitItem)
         statusItem?.menu = menu
     }
 
@@ -516,7 +527,13 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
         let appMenuItem = NSMenuItem()
         let appMenu = NSMenu(title: "SimpleSpritz")
 
-        appMenu.addItem(NSMenuItem(title: "Quit SimpleSpritz", action: #selector(quit), keyEquivalent: "q"))
+        let readItem = NSMenuItem(title: "Read Selection", action: #selector(readSelection), keyEquivalent: "s")
+        readItem.keyEquivalentModifierMask = [.command, .option]
+        readItem.target = self
+        appMenu.addItem(readItem)
+        let quitItem = NSMenuItem(title: "Quit SimpleSpritz", action: #selector(quit), keyEquivalent: "q")
+        quitItem.target = self
+        appMenu.addItem(quitItem)
 
         appMenuItem.submenu = appMenu
         mainMenu.addItem(appMenuItem)
@@ -534,19 +551,34 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func registerHotKey() {
-        var eventType = EventTypeSpec(eventClass: OSType(kEventClassKeyboard), eventKind: UInt32(kEventHotKeyPressed))
-        InstallEventHandler(GetApplicationEventTarget(), { _, event, userData in
-            var id = EventHotKeyID()
-            GetEventParameter(event, EventParamName(kEventParamDirectObject), EventParamType(typeEventHotKeyID), nil, MemoryLayout<EventHotKeyID>.size, nil, &id)
-            if id.signature == hotKeySignature && id.id == hotKeyID {
-                let appDelegate = Unmanaged<AppDelegate>.fromOpaque(userData!).takeUnretainedValue()
-                appDelegate.readSelection()
+        if let hotKeyRef {
+            UnregisterEventHotKey(hotKeyRef)
+            self.hotKeyRef = nil
+        }
+
+        if hotKeyEventHandlerRef == nil {
+            var eventType = EventTypeSpec(eventClass: OSType(kEventClassKeyboard), eventKind: UInt32(kEventHotKeyPressed))
+            let handlerStatus = InstallEventHandler(GetApplicationEventTarget(), { _, event, userData in
+                var id = EventHotKeyID()
+                GetEventParameter(event, EventParamName(kEventParamDirectObject), EventParamType(typeEventHotKeyID), nil, MemoryLayout<EventHotKeyID>.size, nil, &id)
+                if id.signature == hotKeySignature && id.id == hotKeyID {
+                    let appDelegate = Unmanaged<AppDelegate>.fromOpaque(userData!).takeUnretainedValue()
+                    appDelegate.readSelection()
+                }
+                return noErr
+            }, 1, &eventType, Unmanaged.passUnretained(self).toOpaque(), &hotKeyEventHandlerRef)
+
+            guard handlerStatus == noErr else {
+                NSLog("SimpleSpritz failed to install hotkey handler: \(handlerStatus)")
+                return
             }
-            return noErr
-        }, 1, &eventType, Unmanaged.passUnretained(self).toOpaque(), nil)
+        }
 
         let id = EventHotKeyID(signature: hotKeySignature, id: hotKeyID)
-        RegisterEventHotKey(hotKeySetting.keyCode, hotKeySetting.modifiers, id, GetApplicationEventTarget(), 0, &hotKeyRef)
+        let hotKeyStatus = RegisterEventHotKey(hotKeySetting.keyCode, hotKeySetting.modifiers, id, GetApplicationEventTarget(), 0, &hotKeyRef)
+        if hotKeyStatus != noErr {
+            NSLog("SimpleSpritz failed to register hotkey \(hotKeySetting.displayName): \(hotKeyStatus)")
+        }
     }
 
     private func updateHotKey(_ setting: HotKeySetting) {
@@ -570,7 +602,20 @@ private final class AppDelegate: NSObject, NSApplicationDelegate {
         state.load(text)
     }
 
+    private func requestAccessibilityPermissionIfNeeded() {
+        let promptKey = kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String
+        let options = [promptKey: true] as CFDictionary
+        if !AXIsProcessTrustedWithOptions(options) {
+            NSLog("SimpleSpritz needs Accessibility permission to copy selected text.")
+        }
+    }
+
     private func selectedText() -> String? {
+        guard AXIsProcessTrusted() else {
+            requestAccessibilityPermissionIfNeeded()
+            return nil
+        }
+
         let pasteboard = NSPasteboard.general
         let snapshot = snapshotPasteboard(pasteboard)
         let originalChangeCount = pasteboard.changeCount
